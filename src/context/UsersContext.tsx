@@ -25,8 +25,12 @@ export const UsersContextProvider = ({
   value: UserContextType;
   children: ReactNode;
 }) => {
-  const [users, setUsers] = useState<Array<User>>();
-  const [roles, setRoles] = useState<Array<string>>();
+  const [users, setUsers] = useState<Array<User> | undefined>(
+    value.users || []
+  );
+  const [roles, setRoles] = useState<Array<string> | undefined>(
+    value.roles || []
+  );
   const [selectedRole, setSelectedRole] = useState<string>('admin');
 
   const { apiClient } = value;
