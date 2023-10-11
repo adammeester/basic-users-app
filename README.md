@@ -1,5 +1,9 @@
 # Zeller front-end coding challenge
 
+This demonstrates a basic usage of the context-api pattern - although the app is not fully utilising it's strengths in it's current state, this gives the app more scalability 
+
+TODO: would introduce a transformer layer which would transform the api response into a more friendly format
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
