@@ -4,7 +4,7 @@
 
 # Main:
 
-Demonstrates the solution at the most level, where components are passed props
+Demonstrates the solution at the most basic level, where components are passed props
 
 # Context-pattern branch:
 
