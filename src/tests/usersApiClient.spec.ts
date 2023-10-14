@@ -1,6 +1,5 @@
 import { API } from 'aws-amplify';
 import { CustomersApiResponse, User } from '../api/types';
-import { UserContextType } from '../context/UsersContext';
 import UsersApiClient from '../api/usersApiClient';
 
 jest.mock('aws-amplify');
@@ -27,7 +26,7 @@ describe('UsersApiClient', () => {
     const usersApiClient = new UsersApiClient();
     const result = await usersApiClient.fetchZellerUsers();
 
-    expect(result).toEqual({ users: mockUsers } as UserContextType);
+    expect(result).toEqual({ users: mockUsers });
   });
 
   it('fetchZellerCustomers should handle errors', async () => {
