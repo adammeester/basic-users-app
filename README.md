@@ -8,7 +8,7 @@ Demonstrates the solution at the most basic level, where components are passed p
 
 # Context-pattern branch:
 
-This demonstrates a basic usage of the context-api pattern - although the app is not fully utilising it's strengths in it's current state, if the app was expanded, this gives the app more scalability and gives a better way to share state between components and avoid prop-drilling
+This demonstrates a basic usage of the context-api pattern - although the app is not fully utilising its strengths in its current state, if the app was expanded, this gives the app more scalability and gives a better way to share state between components and avoid prop-drilling
 
 TODO: would introduce a transformer layer which would transform the api response into a more friendly format
 
