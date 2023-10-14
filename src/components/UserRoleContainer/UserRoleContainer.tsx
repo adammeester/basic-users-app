@@ -1,27 +1,24 @@
 import {
+  Alert,
   FormControlLabel,
   Radio,
   RadioGroup,
   Typography,
   styled,
 } from '@mui/material';
-
-export type UserRoleContainerProps = {
-  roles: Array<string>;
-  selectedRole: string;
-  onRoleSelected: (role: string) => void;
-};
+import { useUsersContext } from '../../context/UsersContext';
 
 const Container = styled('div')({
   borderBottom: '1px solid lightGrey',
   paddingBottom: '2rem',
 });
 
-export const UserRoleContainer = ({
-  roles,
-  selectedRole,
-  onRoleSelected,
-}: UserRoleContainerProps) => {
+export const UserRoleContainer = () => {
+  const { roles, selectedRole, handleUpdateSelectedRole } = useUsersContext();
+
+  if (!roles?.length)
+    return <Alert severity='error'>Sorry, unable to retrieve roles.</Alert>;
+
   return (
     <Container>
       <Typography variant='h4' paddingBottom={'1.5rem'}>
@@ -31,7 +28,7 @@ export const UserRoleContainer = ({
         aria-labelledby='role-selection-radio'
         name='role-selection-buttons-group'
       >
-        {roles.map((role) => {
+        {roles?.map((role) => {
           return (
             <FormControlLabel
               key={role}
@@ -40,7 +37,7 @@ export const UserRoleContainer = ({
               control={<Radio />}
               label={role}
               checked={selectedRole === role}
-              onChange={() => onRoleSelected(role)}
+              onChange={() => handleUpdateSelectedRole(role)}
             />
           );
         })}

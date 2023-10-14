@@ -1,5 +1,5 @@
-import { Avatar, Typography, styled } from '@mui/material';
-import { User } from '../../api/types';
+import { Alert, Avatar, Typography, styled } from '@mui/material';
+import { useUsersContext } from '../../context/UsersContext';
 
 const UserContainer = styled('div')({
   display: 'flex',
@@ -19,15 +19,12 @@ const Container = styled('div')({
   paddingBottom: '1.5rem',
 });
 
-type UsersContainerProps = {
-  users: Array<User>;
-  roleSelected: string;
-};
+export const UsersContainer = () => {
+  const { users, selectedRole } = useUsersContext();
 
-export const UsersContainer = ({
-  users,
-  roleSelected,
-}: UsersContainerProps) => {
+  if (!users?.length)
+    return <Alert severity='error'>Sorry, unable to retrieve users.</Alert>;
+
   return (
     <Container>
       <Typography
@@ -35,10 +32,10 @@ export const UsersContainer = ({
         paddingBottom={'1.5rem'}
         textTransform={'capitalize'}
       >
-        {roleSelected} Users
+        {selectedRole} Users
       </Typography>
       {users
-        ?.filter((user) => user.role.toLowerCase() === roleSelected)
+        ?.filter((user) => user.role.toLowerCase() === selectedRole)
         ?.map((user) => {
           return (
             <UserContainer key={user.name}>
