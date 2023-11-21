@@ -1,4 +1,4 @@
-# Zeller front-end coding challenge
+# Simple users data app
 
 # IMPORTANT - This project has 2 branches and I would encourage you to look at both main + the context-pattern branch as it demonstrates 2 different approaches to this solution
 
